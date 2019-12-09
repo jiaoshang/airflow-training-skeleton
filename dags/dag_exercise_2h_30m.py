@@ -11,7 +11,7 @@ args = {
 with DAG(
     dag_id='dag_exercise_2h_30m',
     default_args=args,
-    schedule_interval=timedelta(hours=2.5),
+    schedule_interval=timedelta(hours=2, minutes=30),
 ) as dag:
 
     t1 = DummyOperator(task_id="task1")
