@@ -1,6 +1,7 @@
 import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
+from datetime import timedelta
 
 args = {
     'owner': 'Airflow',
@@ -10,7 +11,7 @@ args = {
 with DAG(
     dag_id='dag_exercise_2h_30m',
     default_args=args,
-    schedule_interval='*/30 2 * * *',
+    schedule_interval=timedelta(hours=2.5),
 ) as dag:
 
     t1 = DummyOperator(task_id="task1")
