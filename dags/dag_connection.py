@@ -9,7 +9,7 @@ args = {
 }
 
 
-sql = '''SELECT * FROM land_registry_price_paid_uk WHERE transfer_date = {{ds}} '''
+sql = '''SELECT * FROM land_registry_price_paid_uk WHERE transfer_date = '{{ds}}' '''
 
 
 with DAG(
@@ -21,7 +21,7 @@ with DAG(
                                                        sql=sql,
                                                        postgres_conn_id="postgres_training",
                                                        bucket='dag-exercise-connection',
-                                                       filename="test_table")
+                                                       filename="test_table/ {{ds}}.json")
 
 
 query_table
