@@ -23,6 +23,14 @@ with DAG(
     t4 = BashOperator(task_id="wait_10", bash_command='sleep 10')
     t5 = DummyOperator(task_id="the_end")
 
+    # for i in (1, 5, 10):
+    #     wait = BashOperator(
+    #         task_id=f"wait_{i}",
+    #         bash_command=f"sleep {i}"
+    #     )
+    #
+    #     t1 >> wait >> t5
+
 t1 >> t2
 t1 >> t3
 t1 >> t4
