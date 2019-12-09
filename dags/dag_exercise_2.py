@@ -15,7 +15,7 @@ def _print_execution_date(execution_date, **kwargs):
 with DAG(
         dag_id='dag_exercise_2',
         default_args=args,
-        schedule_interval=None,
+        schedule_interval='@daily',
 ) as dag:
     t1 = PythonOperator(task_id="print_execution_date", provide_context=True, python_callable=_print_execution_date,)
     t2 = BashOperator(task_id="wait_5", bash_command='sleep 5')
