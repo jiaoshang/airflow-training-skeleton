@@ -28,7 +28,7 @@ def branch_func(execution_date, **kwargs):
 with DAG(
         dag_id='dag_exercise_branching',
         default_args=args,
-        schedule_interval=None,
+        schedule_interval='@daily',
 ) as dag:
     print_weekday = PythonOperator(task_id="print_execution_date", provide_context=True, python_callable=_print_weekday, )
     branching = BranchPythonOperator(task_id="branching", provide_context=True, python_callable=branch_func,)
