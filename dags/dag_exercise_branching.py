@@ -37,5 +37,6 @@ with DAG(
     email_joe = DummyOperator(task_id="email_joe")
     final_task = BashOperator(task_id="final_task", bash_command="sleep 1")
 
-print_weekday >> branching >> final_task
+print_weekday >> branching >> [email_joe, email_bob, email_alice] >> final_task
+
 
