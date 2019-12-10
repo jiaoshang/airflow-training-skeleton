@@ -9,7 +9,7 @@ args = {
 }
 
 sql = '''SELECT * FROM land_registry_price_paid_uk WHERE transfer_date = '{{ds}}' '''
-http_endpoint = "​history?start_at={{yesterday_ds}}&end_at={{ds}}&symbols=EUR&base=GBP"
+http_endpoint = '​history?start_at={{yesterday_ds}}&end_at={{ds}}&symbols=EUR&base=GBP'
 
 with DAG(
         dag_id='dag_exercise_connection',
