@@ -6,7 +6,7 @@ class LaunchHook(BaseHook):
     base_url = 'https://launchlibrary.net/'
 
     def __init__(self, conn_id, api_version):
-        super.__init__(source=None)
+        super().__init__(source=None)
         self._conn_id = conn_id
         self._conn = None
         self._api_version = api_version

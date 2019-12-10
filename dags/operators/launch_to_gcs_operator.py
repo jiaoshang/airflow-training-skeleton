@@ -15,7 +15,7 @@ class LaunchToGcsOperator(BaseOperator):
              launch_conn_id=None,
              *args, **kwargs):
 
-        super.__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._bucket = bucket
         self._delegate_to = delegate_to
         self._start_date = start_date
