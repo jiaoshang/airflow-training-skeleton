@@ -8,8 +8,8 @@ class LaunchHook(BaseHook):
     def __init__(self, conn_id, api_version=1.4):
         super().__init__(source=None)
         self._conn_id = conn_id
-        self._conn = None
         self._api_version = api_version
+        self._conn = None
 
     def get_conn(self):
         if self._conn is None:
