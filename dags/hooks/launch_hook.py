@@ -5,7 +5,7 @@ from airflow.hooks.base_hook import BaseHook
 class LaunchHook(BaseHook):
     base_url = 'https://launchlibrary.net/'
 
-    def __init__(self, conn_id, api_version):
+    def __init__(self, conn_id, api_version=1.4):
         super().__init__(source=None)
         self._conn_id = conn_id
         self._conn = None
@@ -16,7 +16,7 @@ class LaunchHook(BaseHook):
             self._conn = requests.session()
         return self._conn
 
-    def download_rocket_launches(self, start_date, end_date):
+    def download_rocket_launches(self, start_date: str, end_date: str):
         # query = LaunchHook.base_url + self._api_version + 'launch?startdate=' + start_date + '&enddate=' + end_date
         # response = requests.get(query)
         # return response

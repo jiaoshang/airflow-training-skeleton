@@ -40,5 +40,5 @@ class LaunchToGcsOperator(BaseOperator):
                         'application/json')
 
     def _download_rocket_launches(self):
-        hook = LaunchHook(self._launch_conn_id)
+        hook = LaunchHook(self._launch_conn_id,)
         return hook.download_rocket_launches(start_date=self._start_date, end_date=self._end_date)
