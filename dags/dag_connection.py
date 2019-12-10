@@ -23,6 +23,7 @@ with DAG(
                                                        filename="test_table/ {{ds}}.json")
 
     fetch_exchange_rate = HttpToGcsOperator(task_id="fetch_exchange_rate",
+                                            http_conn_id=None,
                                             endpoint=http_endpoint,
                                             gcs_bucket="dag-exercise-connection",
                                             gcs_path="exchange_rate")
